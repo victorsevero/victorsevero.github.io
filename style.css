@@ -2,3 +2,30 @@ html, body{
     margin: 0;
     padding: 0;
 }
+
+#cabeçalho{
+
+    height: 174px;
+    background: #EE1515;
+}
+
+#tittle{
+    font-size: 5rem;
+    padding-top: 30px;
+    text-shadow: 3.5px 0 0 #fff, -3.5px 0 0 #fff, 0 3.5px 0 #fff, 0 -3.5px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+}
+
+#middle{
+    background: #222224;
+    height: 70px;
+}
+
+#entry{
+    padding: 60px;
+}
+
+#input{
+    background: #D3CFCF;
+    border-radius: 10px;
+}

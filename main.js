@@ -31,7 +31,7 @@ function new_entry(){
 
 
 user_in.addEventListener("input", function(){
-    if (user_in.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "") == rnd_poke) {
+    if (user_in.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase() == rnd_poke) {
         new_entry();
         user_in.value = "";
     }

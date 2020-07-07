@@ -53,3 +53,19 @@ img{
 .correct{
     background: #4BF730;
 }
+
+#loglist{
+    background: #D3CFCF;
+    margin: 30px auto;
+    padding-left: 0;
+    padding-right: 0;
+    height: 150px;
+}
+#log{
+    height: 150px;
+    padding: 0;
+}
+
+#log td{
+    padding: auto;
+}

@@ -1,6 +1,11 @@
 var xhttp = new XMLHttpRequest();
 var user_in = document.getElementById("input");
 var entry = document.getElementById("entry");
+var table = document.getElementById("log");
+var currentRow = document.querySelector("tr");
+
+var tdCount = 0;
+
 
 
 xhttp.onreadystatechange = function() {
@@ -29,11 +34,8 @@ function new_entry(){
 	return rnd_poke
 };
 
-
-user_in.addEventListener("input", function(){
-    // toDo: maybe add "\u0300-\u036f" w/ NFD normalize func to ignore accentuation, i haven't decided it yet
-    if (user_in.value.replace("\u0027", "\u2019").toLowerCase() == rnd_poke.replace(/[\u2640\u2642]/g, "").toLowerCase()){
-        user_in.classList.toggle("correct"); //Set input background to green(enable "correct" class)
+function reset_entry(){
+    user_in.classList.toggle("correct"); //Set input background to green(enable "correct" class)
         user_in.classList.toggle("input-pokemon");//Disable gray input background(disable "input-pokemon" class)
         new_entry();
         setTimeout(function(){//set delay to restore the initial buttons classes with fade animation
@@ -41,5 +43,29 @@ user_in.addEventListener("input", function(){
             user_in.classList.toggle("input-pokemon");}
         ,200);
         user_in.value = "";
+}
+//Working on log feature
+function add_to_table(pokemon){
+    if(tdCount > 12){
+        currentRow = document.createElement('tr');
+        table.appendChild(currentRow);
+        let newTr = document.createElement('td');
+        newTr.innerText = pokemon;
+        currentRow.appendChild(document.createElement('td'));
+        tdCount = 0;
+    }
+    else {
+        let newTr = document.createElement('td');
+        newTr.innerText = pokemon;
+        currentRow.appendChild(document.createElement('td'));
+    }
+}
+
+user_in.addEventListener("input", function(){
+    // toDo: maybe add "\u0300-\u036f" w/ NFD normalize func to ignore accentuation, i haven't decided it yet
+    if (user_in.value.replace("\u0027", "\u2019").toLowerCase() == rnd_poke.replace(/[\u2640\u2642]/g, "").toLowerCase()){
+        add_to_table(rnd_poke);
+        reset_entry();
     }
 });
+

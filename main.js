@@ -1,6 +1,7 @@
 var xhttp = new XMLHttpRequest();
 var user_in = document.getElementById("input");
 var entry = document.getElementById("entry");
+var correct_answer;
 
 
 xhttp.onreadystatechange = function() {
@@ -33,6 +34,8 @@ function new_entry(){
 user_in.addEventListener("input", function(){
     // toDo: maybe add "\u0300-\u036f" w/ NFD normalize func to ignore accentuation, i haven't decided it yet
     if (user_in.value.replace("\u0027", "\u2019").toLowerCase() == rnd_poke.replace(/[\u2640\u2642]/g, "").toLowerCase()){
+        // essa porra de variável aqui @kauelso
+        correct_answer = rnd_poke;
         user_in.classList.toggle("correct");
         user_in.classList.toggle("input-pokemon");
         new_entry();

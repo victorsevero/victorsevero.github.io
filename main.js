@@ -37,7 +37,7 @@ user_in.addEventListener("input", function(){
         user_in.classList.toggle("input-pokemon");//Disable gray input background(disable "input-pokemon" class)
         new_entry();
         setTimeout(function(){//set delay to restore the initial buttons classes with fade animation
-            user_in.classList.toggle("correct"); 
+            user_in.classList.toggle("correct");
             user_in.classList.toggle("input-pokemon");}
         ,200);
         user_in.value = "";

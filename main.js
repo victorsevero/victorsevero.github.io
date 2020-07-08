@@ -50,21 +50,22 @@ function add_to_table(pokemon){
         currentRow = document.createElement('tr');
         table.appendChild(currentRow);
         let newTr = document.createElement('td');
+        currentRow.appendChild(newTr);
         newTr.innerText = pokemon;
-        currentRow.appendChild(document.createElement('td'));
         tdCount = 0;
     }
     else {
         let newTr = document.createElement('td');
-        newTr.innerText = pokemon;
-        currentRow.appendChild(document.createElement('td'));
+        currentRow.appendChild(newTr);
+        newTr.innerHTML = pokemon;
+        tdCount++;
     }
 }
 
 user_in.addEventListener("input", function(){
     // toDo: maybe add "\u0300-\u036f" w/ NFD normalize func to ignore accentuation, i haven't decided it yet
     if (user_in.value.replace("\u0027", "\u2019").toLowerCase() == rnd_poke.replace(/[\u2640\u2642]/g, "").toLowerCase()){
-        add_to_table(rnd_poke);
+        add_to_table(user_in.value);
         reset_entry();
     }
 });

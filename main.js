@@ -46,18 +46,18 @@ function reset_entry(){
 }
 //Working on log feature
 function add_to_table(pokemon){
-    if(tdCount > 12){
+    if(tdCount > 8){
         currentRow = document.createElement('tr');
         table.appendChild(currentRow);
         let newTr = document.createElement('td');
         currentRow.appendChild(newTr);
-        newTr.innerText = pokemon;
+        newTr.innerText = pokemon.toUpperCase();
         tdCount = 0;
     }
     else {
         let newTr = document.createElement('td');
         currentRow.appendChild(newTr);
-        newTr.innerHTML = pokemon;
+        newTr.innerHTML = pokemon.toUpperCase();
         tdCount++;
     }
 }
